@@ -1,4 +1,5 @@
 import random
+import time
 
 print("🎯 Welcome to the Number Guessing Game!")
 
@@ -24,6 +25,9 @@ while True:
     secretNumber = random.randint(1, 100)
     print(f"You have {max_attempts} chances to guess the correct number.")
 
+    # Start the timer
+    start_time = time.time()
+
     # Guessing loop
     for attempt in range(1, max_attempts + 1):
         while True:
@@ -40,6 +44,14 @@ while True:
         else:
             break  # correct guess
 
+    # End the timer
+    end_time = time.time()
+    elapsed_time = end_time - start_time
+
+    # Format the time nicely
+    minutes = int(elapsed_time // 60)
+    seconds = int(elapsed_time % 60)
+
     # End result
     if guess == secretNumber:
         print(f'Good job! You guessed my number in {attempt} guesses.')
@@ -49,6 +61,11 @@ while True:
             print("Your last guess was too low.")
         else:
             print("Your last guess was too high.")
+
+    if minutes > 0:
+        print(f"⏱️ You took {minutes} minute(s) and {seconds} second(s).")
+    else:
+        print(f"⏱️ You took {seconds} second(s).")
 
     # Ask to play again
     play_again = input("\nDo you want to play again? (yes/no): ").strip().lower()
