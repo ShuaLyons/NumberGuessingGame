@@ -42,3 +42,7 @@ if guess == secretNumber:
     print(f'Good job! You guessed my number in {attempt} guesses.')
 else:
     print(f'Nope, the number I was thinking of was {secretNumber}')
+    if guess < secretNumber:
+        print("Your last guess was too low.")
+    else:
+        print("Your last guess was too high.")
