@@ -1,48 +1,57 @@
 import random
 
-print("Welcome to the ShuaLyons Number Guessing Game!")
-print("I'm thinking of a number between 1 and 100.")
+print("🎯 Welcome to the Number Guessing Game!")
 
-# Choose difficulty level
+# Main game loop
 while True:
-    difficulty = input("Please select the difficulty level: \n1.Easy (10 Chances) \n2.Medium (5 Chances) \n3.Hard (3 Chances)\nEnter your choice: ").lower()
-    if difficulty == '1':
-        max_attempts = 10
-        break
-    elif difficulty == '2':
-        max_attempts = 5
-        break
-    elif difficulty == '3':
-        max_attempts = 3
-        break
-    else:
-        print("Invalid choice. Please type 1, 2, or 3.")
+    print("\nI'm thinking of a number between 1 and 100.")
 
-secretNumber = random.randint(1, 100)
-print(f"You have {max_attempts} chances to guess the correct number.")
-
-# Guessing loop
-for attempt in range(1, max_attempts + 1):
+    # Choose difficulty level
     while True:
-        try:
-            guess = int(input(f'Attempt {attempt} - Take a guess: '))
+        difficulty = input("Choose difficulty (easy, medium, hard): ").lower()
+        if difficulty == 'easy':
+            max_attempts = 10
             break
-        except ValueError:
-            print("Please enter a valid number.")
+        elif difficulty == 'medium':
+            max_attempts = 5
+            break
+        elif difficulty == 'hard':
+            max_attempts = 3
+            break
+        else:
+            print("Invalid choice. Please type easy, medium, or hard.")
 
-    if guess < secretNumber:
-        print(f'The number is higher than {guess}')
-    elif guess > secretNumber:
-        print(f'The number is lower than {guess}')
-    else:
-        break  # correct guess
+    secretNumber = random.randint(1, 100)
+    print(f"You have {max_attempts} chances to guess the correct number.")
 
-# End result
-if guess == secretNumber:
-    print(f'Good job! You guessed my number in {attempt} guesses.')
-else:
-    print(f'Nope, the number I was thinking of was {secretNumber}')
-    if guess < secretNumber:
-        print("Your last guess was too low.")
+    # Guessing loop
+    for attempt in range(1, max_attempts + 1):
+        while True:
+            try:
+                guess = int(input(f'Attempt {attempt} - Take a guess: '))
+                break
+            except ValueError:
+                print("Please enter a valid number.")
+
+        if guess < secretNumber:
+            print(f"Too low! Try a higher number than {guess}.")
+        elif guess > secretNumber:
+            print(f"Too high! Try a lower number than {guess}.")
+        else:
+            break  # correct guess
+
+    # End result
+    if guess == secretNumber:
+        print(f'Good job! You guessed my number in {attempt} guesses.')
     else:
-        print("Your last guess was too high.")
+        print(f'Nope, the number I was thinking of was {secretNumber}.')
+        if guess < secretNumber:
+            print("Your last guess was too low.")
+        else:
+            print("Your last guess was too high.")
+
+    # Ask to play again
+    play_again = input("\nDo you want to play again? (yes/no): ").strip().lower()
+    if play_again != 'yes':
+        print("Thanks for playing! 👋")
+        break
