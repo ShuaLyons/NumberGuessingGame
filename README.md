@@ -21,5 +21,5 @@ A simple and fun console-based Number Guessing Game built with Python. The user 
 - Final message if the user runs out of attempts
 
 ## 🙌 Acknowledgments
-Built as a beginner Python project
-Inspired by classic command-line games
+- Built as a beginner Python project
+- Inspired by classic command-line games
