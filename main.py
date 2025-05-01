@@ -41,4 +41,4 @@ for attempt in range(1, max_attempts + 1):
 if guess == secretNumber:
     print(f'Good job! You guessed my number in {attempt} guesses.')
 else:
-    print('Nope, the number I was thinking of was ' + str(secretNumber))
+    print(f'Nope, the number I was thinking of was {secretNumber}')
