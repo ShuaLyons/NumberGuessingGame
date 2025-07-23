@@ -1,5 +1,9 @@
 # 🎯 Number Guessing Game (Python Console)
 
+![Python Version](https://img.shields.io/badge/python-3.6%2B-blue)
+![License](https://img.shields.io/badge/license-MIT-green)
+![Last Commit](https://img.shields.io/github/last-commit/shualyons/numberguessinggame)
+
 A simple and fun console-based Number Guessing Game built with Python. The user tries to guess a randomly generated number between 1 and 100. The game includes difficulty levels that adjust how many attempts the player gets.
 
 ## 🕹️ How to Play
